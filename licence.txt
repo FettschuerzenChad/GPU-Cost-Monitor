@@ -1,0 +1,27 @@
+# GPU Cost Monitor — Freeware License
+
+Copyright © 2026 Fettschuerzen Chad. All rights reserved.
+
+**1. Permission to Use**
+
+GPU Cost Monitor is provided free of charge for personal and commercial use.
+
+**2. Restrictions**
+
+You may not modify, reverse engineer, decompile, sell, sublicense, or redistribute this software without prior written permission from the copyright holder, except where applicable law expressly permits such activities.
+
+**3. Ownership**
+
+All rights, title, and interest in the software remain with the copyright holder.
+
+**4. No Warranty**
+
+This software is provided "AS IS", without warranty of any kind, express or implied, to the extent permitted by applicable law.
+
+**5. Limitation of Liability**
+
+To the maximum extent permitted by applicable law, the copyright holder shall not be liable for damages arising from the use or inability to use this software.
+
+**6. Third-Party Components**
+
+Third-party components included with this software remain subject to their respective licences. Nothing in this licence overrides the rights granted by those licences.
