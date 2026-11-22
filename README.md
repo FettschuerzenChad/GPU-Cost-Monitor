@@ -1,16 +1,8 @@
 # GPU Cost Monitor
 
 A native Windows x64 desktop application (C++17, Win32 API) that monitors
-GPU utilization, VRAM, and power draw of a single or multiple machines in 
-real time and tracks the electricity cost of GPU usage.
-
-## Screenshots
-
-### Main Window
-![GPU Cost Monitor Main Window](screenshots/main_interface.png)
-
-### Options
-![GPU Cost Monitor Statistics](screenshots/options_interface.png)
+GPU utilization, VRAM, and power draw in real time and tracks the
+electricity cost of GPU usage of a single or multiple machines.
 
 ## Features
 
@@ -37,43 +29,21 @@ real time and tracks the electricity cost of GPU usage.
 
 ## User interface
 
+- **Drag** the title bar to move the window (the window is fixed-size).
 - **Right-click** opens the menu:
-  - **Options...** — electricity rate, currency, REST API enable/port/
+  - **Settings...** — electricity rate, currency, REST API enable/port/
     password, fleet monitoring (server/client), launch at startup,
     always on top, show graph, reset cost records
   - **Export to Excel** — writes `data\gpu_cost_export.xlsx` (a real XLSX;
     falls back to CSV if XLSX writing fails)
   - **About** — shows version, copyright, and donation info
   - **Exit**
-- **—** minimizes, **✕** hides.
-- App lives in system tray
-
-## Data files
-
-`data\minute_stats.csv` and `data\hourly_stats.csv` share the schema:
-
-```
-timestamp,ip_address,gpu_count,gpu_usage_percent,vram_usage_percent,energy_kwh,electricity_rate,cost
-```
-
-- `timestamp` — start of the minute (unix seconds)
-- `ip_address` — source of the data: `127.0.0.1` for the local app, or the
-  client IP for fleet data
-- `gpu_count` — number of GPUs contributing to the record
-- `gpu_usage_percent` — average GPU utilization over the minute
-- `vram_usage_percent` — average VRAM usage over the minute
-- `energy_kwh` — energy consumed during the minute (kWh)
-- `electricity_rate` — rate in effect when the energy was consumed
-- `cost` — energy_kwh × electricity_rate
-
-Completed minutes are appended to `minute_stats.csv`. When the hour rolls
-over, the previous hour's minutes are aggregated into `hourly_stats.csv` and
-archived (crash-safe: the hourly record is written before minutes are
-deleted; unfinished aggregations are recovered on startup).
+  - **—** minimizes, **✕** hides.
+  - App lives in system tray.
 
 ## Configuration
 
-`config.json` (created on first options save):
+`config.json` (created on first settings save):
 
 ```json
 {
@@ -111,7 +81,7 @@ deleted; unfinished aggregations are recovered on startup).
 
 ## REST API
 
-Enable in Options (or set `api_enabled: true` in `config.json`). Binds to
+Enable in Settings (or set `api_enabled: true` in `config.json`). Binds to
 `127.0.0.1` only (loopback; not reachable from other machines). Connections
 are handled sequentially; all responses are JSON with
 `Content-Type: application/json`.
@@ -123,10 +93,10 @@ Every request may carry a `password` parameter:
 - **GET** requests: query parameter `?password=<password>`
 - **POST** requests: JSON body field `"password": "<password>"`
 
-When a password is configured (Options → "API password"), requests with a
+When a password is configured (Settings → "API password"), requests with a
 missing or mismatching password are rejected with **401**. When no password
 is configured, requests are accepted without authentication. Password
-changes in Options apply live (read per request).
+changes in Settings apply live (read per request).
 
 ### Endpoints
 
@@ -260,7 +230,7 @@ curl -X POST http://127.0.0.1:18744/gcm_rate -d "{\"rate\":0.15,\"password\":\"s
 
 ## Fleet monitoring
 
-Enable in Options ("Enable fleet monitoring"). A small line-based TCP
+Enable in Settings ("Enable fleet monitoring"). A small line-based TCP
 protocol lets a "client" machine stream its GPU stats to a "server" machine
 once per second. The server aggregates the data from all connected clients
 (summing power / energy / GPU counts) so it can display and persist
