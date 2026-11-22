@@ -7,10 +7,10 @@ real time and tracks the electricity cost of GPU usage.
 ## Screenshots
 
 ### Main Window
-![GPU Cost Monitor Main Window](screenshots/Screenshot_1.png)
+![GPU Cost Monitor Main Window](screenshots/main_interface.png)
 
 ### Options
-![GPU Cost Monitor Statistics](screenshots/Screenshot_2.png)
+![GPU Cost Monitor Statistics](screenshots/options_interface.png)
 
 ## Features
 
