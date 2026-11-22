@@ -38,7 +38,6 @@ electricity cost of GPU usage of a single or multiple machines.
 
 ## User interface
 
-- **Drag** the title bar to move the window (the window is fixed-size).
 - **Right-click** opens the menu:
   - **Settings...** — electricity rate, currency, REST API enable/port/
     password, fleet monitoring (server/client), launch at startup,
