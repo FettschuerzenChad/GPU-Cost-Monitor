@@ -4,6 +4,14 @@ A native Windows x64 desktop application (C++17, Win32 API) that monitors
 GPU utilization, VRAM, and power draw of a single or multiple machines in 
 real time and tracks the electricity cost of GPU usage.
 
+## Screenshots
+
+### Main Window
+![GPU Cost Monitor Main Window](screenshots/Screenshot_1.png)
+
+### Options
+![GPU Cost Monitor Statistics](screenshots/Screenshot_2.png)
+
 ## Features
 
 - **NVIDIA** support via NVML (`nvml.dll`)
@@ -29,7 +37,6 @@ real time and tracks the electricity cost of GPU usage.
 
 ## User interface
 
-- **Drag** the title bar to move the window (the window is fixed-size).
 - **Right-click** opens the menu:
   - **Options...** — electricity rate, currency, REST API enable/port/
     password, fleet monitoring (server/client), launch at startup,
@@ -38,7 +45,8 @@ real time and tracks the electricity cost of GPU usage.
     falls back to CSV if XLSX writing fails)
   - **About** — shows version, copyright, and donation info
   - **Exit**
-- **—** minimizes, **✕** closes.
+- **—** minimizes, **✕** hides.
+- App lives in system tray
 
 ## Data files
 
