@@ -10,7 +10,7 @@ electricity cost of GPU usage of a single or multiple machines.
 ![GPU Cost Monitor Main Window](screenshots/main_interface.png)
 
 ### Settings
-![GPU Cost Monitor Statistics](screenshots/settings_interface.png)
+![GPU Cost Monitor Statistics](screenshots/settings_interfac.png)
 
 
 ## Features
